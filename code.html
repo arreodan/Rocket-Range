@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hundo: A coding challenge by Daniel Arreola</title>
+    <title>Rocket Range: A coding challenge by Daniel Arreola</title>
 
     <!-- Bootstrap CSS -->
     <link
@@ -63,7 +63,7 @@
                 <a class="nav-link active" href="/code.html">Code</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Repo</a>
+                <a class="nav-link" target="_blank" href="https://github.com/arreodan/Rocket-Range">Repo</a>
               </li>
               <li class="nav-item">
                 <a
@@ -89,25 +89,82 @@
         <div class="col-12 col-lg-8">
           <pre class="line-numbers">
                 <code class="language-js">
-function displayMessage() {
-    let msg = document.getElementById('message').value;
-    // alert(msg);
+// get the start and end values from the page
+// entry point of our application 
+function getValues() {
+  let startValue = document.getElementById("startValue").value; // startValue = "0"
+  let endValue = document.getElementById("endValue").value; // startValue = "100"
 
-    Swal.fire(
-        {
-            backdrop: false,
-            title: 'Hundo',
-            text: msg
-        }
-    );
+  let startNumber = parseInt(startValue); //startNumber = 0
+  let endNumber = parseInt(endValue); // startNumber = 100
+
+  let numberArray = generateNumbers(startNumber, endNumber);
+  displayNumbers(numberArray)
+}
+
+// generate the range of numbers to display
+// Business/logic function
+function generateNumbers(start, end) {
+
+  let basketOfNumbers = [];
+
+  for (let number = start; number <= end; number = number + 1) {
+    basketOfNumbers.push(number); //[0, 1, 2, 3, ..., 100]
+  }
+
+  return basketOfNumbers;
+
+}
+
+// placing the generated numbers on the page and bolding the even numbers
+// view function
+function displayNumbers(numbers){
+  // start = 10, end = 15
+  // numbers = [10, 11, 12, 13, 14, 15]
+  // numbers.length = 6 
+
+  let results = '';
+
+  for (let index = 0; index < numbers.length; index = index + 1){
+    let currentNumber = numbers[index];
+
+    if (currentNumber % 2 == 0){
+        results += `&lt;tr>&lt;td class="evenNumber">${currentNumber}&lt;/td>&lt;/tr>`;
+    } else {
+        results += `&lt;tr>&lt;td>${currentNumber}&lt;/td>&lt;/tr>`;
+    }
+
+
+
+  }
+
+  let tableBody = document.getElementById('results')
+  tableBody.innerHTML = results;
 }
                 </code>
             </pre>
         </div>
         <div class="col-12 col-lg-4">
-          <p>the code is structed in one function</p>
-          <h5>displayMessage</h5>
-          <p>Prints out the message</p>
+          <p>the code is structed in three functions</p>
+          <h5>
+            <ul>
+              <li>getValues</li>
+              <li>generateNumbers</li>
+              <li>displayNumbers</li>
+            </ul>
+          </h5>
+          <p>
+            getValues uses your inputed start and end number and converts the
+            string into a number using parseInt. It then passes the numbers to
+            the generateNumbers function to create a the range of numbers and
+            convert them into an array using a for loop that adds 1 until the
+            end number is reached. generateNumbers then returns the array back
+            to getValues sends them to the displayNumbers function.
+            displayNumbers then uses the amount of items in the array to pick
+            the current number and uses an if statement to decided if the number
+            is even and give it the CSS class of evenNumber, if else it doesn't
+            reacieve a class
+          </p>
         </div>
       </div>
     </main>
@@ -122,8 +179,8 @@ function displayMessage() {
             <img src="/img/LogoWTextnomargin.png" alt="" height="60" />
           </div>
           <div class="col text-center text-lg-end">
-            <a href="" target="_blank"><i class="bi bi-linkedin"></i></a>
-            <a href="" target="_blank"><i class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/in/arreoda/" target="_blank"><i class="bi bi-linkedin"></i></a>
+            <a href="https://github.com/arreodan" target="_blank"><i class="bi bi-github"></i></a>
             <a href="" target="_blank"><i class="bi bi-person-badge"></i></a>
           </div>
         </div>

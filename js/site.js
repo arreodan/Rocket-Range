@@ -37,7 +37,14 @@ function displayNumbers(numbers){
   for (let index = 0; index < numbers.length; index = index + 1){
     let currentNumber = numbers[index];
 
-    results = results + `<tr><td>${currentNumber}</td></tr>`;
+    if (currentNumber % 2 == 0){
+        results += `<tr><td class="evenNumber">${currentNumber}</td></tr>`;
+    } else {
+        results += `<tr><td>${currentNumber}</td></tr>`;
+    }
+
+
+
   }
 
   let tableBody = document.getElementById('results')

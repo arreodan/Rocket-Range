@@ -87,3 +87,8 @@ footer .bi:hover{
 .appLogo{
     max-width: 400px;
 }
+
+.evenNumber{
+  font-weight: bolder;
+  color: var(--da-highlight-color) !important;
+}
