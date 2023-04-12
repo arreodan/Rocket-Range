@@ -7,14 +7,24 @@ function getValues() {
   let startNumber = parseInt(startValue); //startNumber = 0
   let endNumber = parseInt(endValue); // startNumber = 100
 
-  let numberArray = generateNumbers(startNumber, endNumber);
-  displayNumbers(numberArray)
+  if (Number.isInteger(startNumber) && Number.isInteger(endNumber)) {
+    let numberArray = generateNumbers(startNumber, endNumber);
+    displayNumbers(numberArray)    
+  } else {
+    Swal.fire(
+      {
+        icon: 'error',
+        title: 'Oops!',
+        text: 'Please enter valid numbers for the start and end values',
+        backdrop: false,
+      }
+    )
+  }
 }
 
 // generate the range of numbers to display
 // Business/logic function
 function generateNumbers(start, end) {
-
   let basketOfNumbers = [];
 
   for (let number = start; number <= end; number = number + 1) {
