@@ -1,11 +1,16 @@
 :root {
+    /* fonts */
+  --da-title-font: "Bebas Neue", sans-serif;
+  --da-subtitle-font: "Fira Sans", sans-serif;
+  --da-heading-font: "Bebas Neue", sans-serif;
+  --da-body-font: "Roboto", sans-serif;
   /* colors */
   --da-primary-color: #2A628F;
   --da-secondary-color: #3E92CC;
   --da-highlight-color: #fb8500;
   --da-dark-color: #16324F;
   --da-light-color: #256c9e;
-  --da-plain-color: #FDFFFC;
+  --da-plain-color: #f5f5f5;
   --da-background-color: var(--da-plain-color);
 
   /* nav bar colors */
@@ -34,7 +39,10 @@ body {
 body {
   display: flex;
   flex-direction: column;
-
+  font-family: var(--da-body-font);
+  font-size: var(--da-font-size);
+  font-weight: var(--da-font-weight);
+  line-height: var(--da-line-height);
 
   color: var(--da-dark-color);
   background: var(--da-background-color);
@@ -50,6 +58,17 @@ footer {
 
 /* Sticky Footer End */
 
+.socialicons {
+  font-size: 2rem;
+  color: var(--da-secondary-color);
+  transition: color 0.25s;
+    padding-left: .65rem;
+}
+
+.socialicons:hover {
+  color: var(--da-highlight-color);
+}
+
 #mainNav{
     background: var(--da-dark-color);
 }
@@ -57,19 +76,12 @@ footer {
 footer{
     background: var(--da-dark-color);
     color: var(--da-plain-color);
-    font-size: 1.3rem;
 }
 
-footer .bi{
-    color: var(--da-secondary-color);
-    font-size: 2rem;
-    padding-left: 1rem;
-    transition: color 0.25s;
+.bi-file-earmark-person{
+  padding-left: .45rem;
 }
 
-footer .bi:hover{
-    color: var(--da-highlight-color);
-}
 
 .checklist{
     list-style-type: none;
@@ -86,6 +98,9 @@ footer .bi:hover{
 
 .appLogo{
     max-width: 400px;
+}
+.m-center{
+  margin-left: 25%;
 }
 
 .evenNumber{
